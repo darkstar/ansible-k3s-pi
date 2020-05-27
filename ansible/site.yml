@@ -27,11 +27,11 @@
   roles:
     - { role: k3s-config, tags: config }
 
-- name: Provision k3s agent nodes
-  hosts: k3s-agents
-  remote_user: pi
-  become: yes
-  become_user: root
-
-  roles:
-    - { role: k3s-agent, tags: agent }
+      #- name: Provision k3s agent nodes
+      #  hosts: k3s-agents
+      #  remote_user: pi
+      #  become: yes
+      #  become_user: root
+      #
+      #  roles:
+      #    - { role: k3s-agent, tags: agent }
