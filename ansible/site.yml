@@ -6,7 +6,7 @@
   become_user: root
 
   roles:
-    - common
+    - { role: raspbian-common, tags: raspbian }
     - { role: k3s-common, tags: common }
 
 - name: Provision k3s server node

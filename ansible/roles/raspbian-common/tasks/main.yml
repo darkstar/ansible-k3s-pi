@@ -19,3 +19,14 @@
 - name: Remove dependencies that are no longer required
   apt:
     autoremove: yes
+
+- name: Get iptables version
+  shell:
+    cmd: iptables --version | grep -o '[0-9.]*'
+  register: iptables_version
+
+- name: Ensure that legacy iptables are used (iptables 1.8.0+)
+  alternatives:
+    name: iptables
+    path: /usr/sbin/iptables-legacy
+  when: iptables_version.stdout is version('1.8.0', '>=')

@@ -6,6 +6,15 @@
     mode: a+x
     force: yes
 
+- name: Ensure environment file exists
+  copy:
+    content: ""
+    dest: /etc/systemd/system/k3s.service.env
+    force: no
+    group: sys
+    owner: root
+    mode: 0644
+
 - name: Enable and start the k3s server service
   service:
     name: k3s-server

@@ -1,3 +1,5 @@
+This is taken from https://github.com/aapit/ansible-k3s-rpi
+
 This Ansible playbook turns your fleet of Raspberry Pi into Kubernetes cattle with k3s, the streamlined version of Kubernetes by @rancher that runs silky smooth on the ARM processor powering your Pi.
 
 # Manually prepare your Raspberries

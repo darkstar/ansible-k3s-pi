@@ -24,6 +24,15 @@
     k3s_server_address: "https://{{ inventory_hostname }}:6443"
   run_once: yes
 
-- name: Print server address
+- name: Get default login from config file
+  become: true
+  shell:
+    cmd: cat /etc/rancher/k3s/k3s.yaml | egrep '(username|password):' | tr -d '\n'
+  register: credentials
+
+- name: Print server address and credentials
   debug:
-    msg: "{{ k3s_server_address }}"
+    msg:
+    - "{{ k3s_server_address }}"
+    - "{{ credentials.stdout }}"
+

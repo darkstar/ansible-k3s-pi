@@ -16,9 +16,9 @@
   reboot:
 
 - name: Download k3s binary
-  get_url: url=https://github.com/rancher/k3s/releases/download/v0.2.0/k3s-armhf dest=/usr/local/bin/k3s mode=a+x
+  get_url: url=https://github.com/rancher/k3s/releases/download/v1.16.9%2Bk3s1/k3s-armhf dest=/usr/local/bin/k3s mode=a+x
 
-- name: Point hostname to localhost (k3s requirement)
-  lineinfile:
-    path: /etc/hosts
-    line: "127.0.0.1 {{inventory_hostname}}"
+  #- name: Point hostname to localhost (k3s requirement)
+  #lineinfile:
+  #  path: /etc/hosts
+  #  line: "127.0.0.1 {{inventory_hostname}}"
