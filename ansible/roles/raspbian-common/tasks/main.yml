@@ -21,6 +21,7 @@
     autoremove: yes
 
 - name: Get iptables version
+  become: true
   shell:
     cmd: iptables --version | grep -o '[0-9.]*'
   register: iptables_version
@@ -42,10 +43,10 @@
 
 - name: Generate /etc/hosts file
   become: true
-  blockinfile:
-    path: /etc/hosts
-    create: yes
-    block: |
+  copy:
+    dest: /etc/hosts
+    force: yes
+    content: |
       127.0.0.1 localhost
 
       # The following lines are desirable for IPv6 capable hosts
